@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>数媒学院研究生会</title>
+        <link rel="stylesheet" href="css/basic.css">
+        <script src="js/jquery-1.12.3.min.js"></script>
+        <script src="js/html5.js"></script>
+    </head>
+    <body>
+        <header></header>
+        <div id="container">
+            <aside id="leftAside">
+                <h1><a href="#"><img src="images/newproduct/xpss.jpg" style="border:0px;"></a></h1>
+                <div><img src="images/newproduct/xp11.jpg">
+                </div>
+                <div><img src="images/newproduct/xp22.jpg">
+                </div>
+            </aside>
+            <section id="silder">
+                <ul>
+                    <li>
+                        <img src="images/slider/t1.jpg"/>
+                    </li>
+                    <li class="hide">
+                        <img src="images/slider/t2.jpg" />
+                    </li>
+                    <li class="hide">
+                        <img src="images/slider/t3.jpg" />
+                    </li>
+                </ul>
+            </section>
+            <aside id="rightAside">
+                <article>
+                    <h1><a href="#"><img src="images/news/zxzx.jpg" style="border:0px;"></a></h1>
+                    <div id="news">
+                        <ul>
+                            <li>
+                                <a href="#">文艺部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">宣传部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">外联部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">生活部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">组织部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">社团部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">体育部，招聘流程，快来加入吧！</a>
+                            <li>
+                                <a href="#">体育部，招聘流程，快来加入吧！</a>
+                        </ul>
+                    </div>
+                </article>
+                <div id="contact">
+                    <img src="images/contact/lxfs.jpg">
+                </div>
+            </aside>
+        </div>
+
+        <section id="productShow">
+            <h1><a href="#"><img src="images/product/rxcp.jpg" style="border:0px;"></a></h1>
+            <table border="0">
+                <tr>
+                    <td><img src="images/product/1.jpg" onclick="showImage(1)"></td>
+                    <td><img src="images/product/2.jpg" onclick="showImage(2)"></td>
+                    <td><img src="images/product/3.jpg" onclick="showImage(3)"></td>
+                    <td><img src="images/product/4.jpg" onclick="showImage(4)"></td>
+                    <td><img src="images/product/5.jpg" onclick="showImage(5)"></td>
+                    <td><img src="images/product/6.jpg" onclick="showImage(6)"></td>
+                    <td><img src="images/product/7.jpg" onclick="showImage(7)"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/product/8.jpg" onclick="showImage(8)"></td>
+                    <td><img src="images/product/9.jpg" onclick="showImage(9)"></td>
+                    <td><img src="images/product/10.jpg" onclick="showImage(10)"></td>
+                    <td><img src="images/product/11.jpg" onclick="showImage(11)"></td>
+                    <td><img src="images/product/12.jpg" onclick="showImage(12)"></td>
+                    <td><img src="images/product/13.jpg" onclick="showImage(13)"></td>
+                    <td><img src="images/product/14.jpg" onclick="showImage(14)"></td>
+                </tr>
+            </table>
+        </section>
+        <div id="showImage">
+            <button onclick="closeImage()"><img src="images/product/close.png" alt="¹Ø±Õ" width="40" height="40">
+            </button>
+            <img src="" alt="Í¼Æ¬ÔÝÎÞ" width="100%" id="productImg">
+        </div>
+         <p>
+            <script>
+                //当前图片序号
+                var index = 0;
+                $(document).ready(function() {
+                    setInterval("next()", 3000);
+                });
+
+                //切换下一张图片
+                function next() {
+                    //当前图片淡出
+                    $("li:eq(" + index + ")").fadeOut(1500);
+                    //判断当前图片序号是否为最后一张
+                    if (index == 2)
+                        //如果是最后一张，序号跳转到第一张
+                        index = 0;
+                    else
+                        //否则图片序号自增1
+                        index++;
+                    //新图片淡入
+                    $("li:eq(" + index + ")").fadeIn(1500);
+                }
+
+                //产品大图展示
+                function showImage(name) {
+                    //产品放大区域淡入
+                    $("#showImage").fadeIn(500);
+                    //指定查看的图片路径
+                    $("#productImg").attr("src", "images/product/large/" + name + ".jpg");
+                }
+
+                //关闭产品大图
+                function closeImage() {
+                    //产品放大区域淡出
+                    $("#showImage").fadeOut(500);
+                }
+            </script>
+            </div>
+        </p>
+        <footer>
+            <p>
+                2016江南大学数字媒体技术研究生学生会
+                <br>
+                期待你的加入
+        </footer>
+    </body>
+</html>
